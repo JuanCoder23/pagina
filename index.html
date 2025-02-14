@@ -3,68 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi San Valentín?</title>
+    <title>Para Nicol ❤️</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
         body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+            color: #d63384;
             text-align: center;
-            background: url('https://i.imgur.com/your-lotso-image.jpg') no-repeat center center/cover;
-            font-family: Arial, sans-serif;
-            color: white;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
-        .container {
-            margin-top: 100px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
         }
+
+        .particles div {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20%);
+                opacity: 0;
+            }
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            width: 90%;
+            max-width: 400px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2em;
+            color: #d63384;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+        }
+
         .buttons {
             margin-top: 20px;
         }
+
         button {
-            padding: 10px 20px;
-            font-size: 20px;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 30px;
             margin: 10px;
             cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        #si {
-            background: green;
-            color: white;
+
+        button:hover {
+            background-color: #b52e6e;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
-        #no {
-            background: red;
-            color: white;
+
+        .no-btn {
+            position: absolute;
         }
-        .hidden {
-            display: none;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            button {
+                font-size: 0.9em;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>¡Nicol Dayanna Campo Fernandez, ¿quieres ser mi San Valentín?!</h1>
-        <p>Desde la distancia, nuestro amor ha ido creciendo como una flor que desafía el tiempo y la distancia. Cada día es un paso más hacia algo especial y único. Eres increíble y quiero que sigamos construyendo esto juntos. ❤️</p>
+    <div class="particles">
+      
+        <div style="left: 10%; animation-delay: 0s; animation-duration: 6s;"></div>
+        <div style="left: 25%; animation-delay: 1s; animation-duration: 5s;"></div>
+        <div style="left: 40%; animation-delay: 2s; animation-duration: 4s;"></div>
+        <div style="left: 55%; animation-delay: 3s; animation-duration: 6s;"></div>
+        <div style="left: 70%; animation-delay: 4s; animation-duration: 5s;"></div>
+        <div style="left: 85%; animation-delay: 5s; animation-duration: 4s;"></div>
+    </div>
+
+    <div class="card">
+        <h1>¿Quieres ser mi San Valentín? 💖</h1>
+        <p>Nicol Campo, desde que llegaste a mi vida, cada día es más especial. No solo quiero que seas mi San Valentín, sino mi compañera de aventuras para siempre. 💕</p>
         <div class="buttons">
-            <button id="si" onclick="mostrarSorpresa()">Sí</button>
-            <button id="no" onclick="mostrarNo()">No</button>
+            <button onclick="respuesta()">¡Sí, quiero! 💘</button>
+            <button class="no-btn" onmouseover="moverBoton()">No 😢</button>
         </div>
     </div>
-    <div id="sorpresa" class="hidden">
-        <h2>¡Eres especial! ❤️</h2>
-        <img src="https://i.imgur.com/https://th.bing.com/th/id/OIP.SMPP2Q_-9Zwwf0WfpMJVRgHaHE?w=2560&h=2443&rs=1&pid=ImgDetMain" alt="Ramo de orquídeas" width="300">
-    </div>
-    <div id="rechazo" class="hidden">
-        <h2>¡Oh no! 😡</h2>
-        <img src="https://i.imgur.com/https://th.bing.com/th/id/OIP.0u5nzEfSWtnm0r8GWhXRlwHaIx?rs=1&pid=ImgDetMain" alt="Lotso enojado" width="300">
-        <p>Presiona el botón de "Sí", por favor. 😠</p>
-    </div>
+
     <script>
-        function mostrarSorpresa() {
-            document.getElementById('sorpresa').classList.remove('hidden');
-            document.getElementById('rechazo').classList.add('hidden');
+        function respuesta() {
+            lanzarConfeti();
+            alert("¡Sabía que dirías que sí! 💖 Te amo con todo mi corazón ❤️");
         }
-        function mostrarNo() {
-            document.getElementById('rechazo').classList.remove('hidden');
-            document.getElementById('sorpresa').classList.add('hidden');
+
+        function moverBoton() {
+            let boton = document.querySelector(".no-btn");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            boton.style.left = x + "px";
+            boton.style.top = y + "px";
+        }
+
+        function lanzarConfeti() {
+            const confettiContainer = document.createElement("div");
+            confettiContainer.style.position = "fixed";
+            confettiContainer.style.top = "0";
+            confettiContainer.style.left = "0";
+            confettiContainer.style.width = "100vw";
+            confettiContainer.style.height = "100vh";
+            confettiContainer.style.pointerEvents = "none";
+            document.body.appendChild(confettiContainer);
+
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.style.position = "absolute";
+                confetti.style.width = "10px";
+                confetti.style.height = "10px";
+                confetti.style.backgroundColor = ["#ff4081", "#ffd700", "#33ccff", "#ff66b2"][Math.floor(Math.random() * 4)];
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.top = "-10px";
+                confetti.style.opacity = Math.random();
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confetti.style.animation = "fall 2s linear infinite";
+                confettiContainer.appendChild(confetti);
+            }
+
+            setTimeout(() => document.body.removeChild(confettiContainer), 3000);
         }
     </script>
 </body>
